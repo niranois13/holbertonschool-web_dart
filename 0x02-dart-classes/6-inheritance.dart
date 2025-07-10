@@ -35,6 +35,6 @@ class User extends Password {
   @override
   String toString() {
     final pass = new Password(password: this.user_password);
-    return ('User(id: ${this.id} ,name: ${this.name}, age: ${this.age}, height: ${this.height}, Password: ${pass.isValid()})');
+    return ('User(id : ${this.id} ,name: ${this.name}, age: ${this.age}, height: ${this.height}, Password: ${pass.isValid()})');
   }
 }
