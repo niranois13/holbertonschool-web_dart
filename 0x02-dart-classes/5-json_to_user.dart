@@ -7,7 +7,7 @@ class User {
   User({required this.name, required this.age, required this.height, required this.id});
 
   Map<String, dynamic> toJson() => {
-    'name': name, 'age': age, 'height': height, 'id': id
+    'id': id, 'name': name, 'age': age, 'height': height,
   };
 
   static User fromJson(Map<dynamic, dynamic> userJson) {
@@ -20,6 +20,6 @@ class User {
   }
 
   String toString() {
-    return ('User(id: $id, name: $name, age: $age, height: $height)');
+    return ('User(id: $id ,name: $name, age: $age, height: $height)');
   }
 }
