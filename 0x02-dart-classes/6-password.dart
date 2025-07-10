@@ -1,7 +1,7 @@
 class Password {
   String _password = "";
 
-  Password({required String password}) { 
+  Password({password}) { 
     this._password = password;
   }
 
@@ -9,7 +9,7 @@ class Password {
     return this._password;
   }
 
-  set password(String password) {
+  void set password(String password) {
     this._password = password;
   }
 
