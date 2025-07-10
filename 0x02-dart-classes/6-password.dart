@@ -1,12 +1,16 @@
 class Password {
   String _password = "";
 
-  Password({required String password}) : _password = password;
+  Password({required String password}) { 
+    this._password = password;
+  }
 
-  String get password => _password;
+  String get password {
+    return this._password;
+  }
 
-  set password(String value) {
-    _password = value;
+  set password(String password) {
+    this._password = password;
   }
 
   bool isValid() {
@@ -16,6 +20,6 @@ class Password {
 
   @override
   toString() {
-    return ('Your Password is: ${_password}');
+    return ('Your Password is: ${this._password}');
   }
 }

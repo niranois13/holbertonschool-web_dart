@@ -5,34 +5,36 @@ class User extends Password {
   int? age;
   double? height;
   int? id;
-  String user_password;
+  String user_password = '';
 
-  User({
-    required this.name,
-    required this.age,
-    required this.height,
-    required this.id,
-    required this.user_password
-    }) : super(password: user_password);
+  User({id, name, age, height, user_password})  : super(password: user_password) {
+    this.name = name;
+    this.age = age;
+    this.height = height;
+    this.id = id;
+    this.user_password = user_password;
+    }
 
   Map<String, dynamic> toJson() => {
-    'name': name ?? "",
-    'age': age ?? 0,
-    'height': height ?? 0,
-    'id': id ?? 0,
+    'id': this.id ?? 0,
+    'name': this.name ?? "",
+    'age': this.age ?? 0,
+    'height': this.height ?? 0,
   };
 
   static User fromJson(Map<dynamic, dynamic> userJson) {
     return User(
-      name: userJson['name'] as String?,
-      age: userJson['age'] as int?,
-      height: userJson['height'] as double?,
-      id: userJson['id'] as int?,
-      user_password: userJson['user_password'] as String,
+      id: userJson['id'],
+      name: userJson['name'],
+      age: userJson['age'],
+      height: userJson['height'],
+      user_password: '',
     );
   }
 
+  @override
   String toString() {
-    return ('User(id: $id ,name: $name, age: $age, height: $height)');
+    final pass = new Password(password: this.user_password);
+    return ('User(id: ${this.id} ,name: ${this.name}, age: ${this.age}, height: ${this.height}), Password: ${pass.isValid()}');
   }
 }
