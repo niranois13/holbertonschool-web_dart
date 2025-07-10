@@ -7,12 +7,11 @@ Future<double> calculateTotal() async {
     String user = await fetchUserData();
     Map<String, dynamic> userData = jsonDecode(user);
     String id = userData['id'];
+
     String orders = await fetchUserOrders(id);
     List<dynamic> userOrders = jsonDecode(orders);
-
-    for (var order in userOrders) {
-      String products = await fetchProductPrice(order);
-      total += double.parse(products);
+    for (int i = 0; i < userOrders.length; i++) {
+      total += jsonDecode(await fetchProductPrice(userOrders[i]));
     }
 
     return total;
