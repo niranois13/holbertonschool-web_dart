@@ -17,8 +17,8 @@ Future<String> loginUser() async {
     bool response = await checkCredentials();
     switch(response) {
       case true:
-        greetUser();
-        return('There is a user: $response');
+        print('There is a user: $response');
+        return(greetUser());
       case false:
         print('There is a user: $response');
         return ('Wrong credentials');
