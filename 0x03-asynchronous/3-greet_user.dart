@@ -17,11 +17,13 @@ Future<String> loginUser() async {
     bool response = await checkCredentials();
     switch(response) {
       case true:
-        print('There is a user: $response');
-        return(greetUser());
+        greetUser();
+        return('There is a user: $response');
       case false:
         print('There is a user: $response');
         return ('Wrong credentials');
+      default:
+        return ('error caught');
     }
   } catch (error) {
     return ('error caught: $error');
